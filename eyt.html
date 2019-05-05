@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <style type="text/css">
+        body {
+            background-color: #ccc;
+            font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .inp1 {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            max-width: 280px;
+        }
+        .inp2 {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            max-width: 280px;
+        }
+        .inp3 {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .inp1 .label {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            font-size: 16px;
+            color: #9098a9;
+            font-weight: 500;
+            transform-origin: 0 0;
+            transition: all 0.2s ease;
+            
+        }        
+        .inp2 .label {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            font-size: 16px;
+            color: #9098a9;
+            font-weight: 500;
+            transform-origin: 0 0;
+            transition: all 0.2s ease;
+            
+        }
+        .inp3 .label {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            font-size: 16px;
+            color: #9098a9;
+            font-weight: 500;
+            transform-origin: 0 0;
+            transition: all 0.2s ease;
+            
+        }
+
+        .inp1 .border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: #07f;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+            transition: all 0.15s ease;
+        }
+        .inp2 .border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: #07f;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+            transition: all 0.15s ease;
+        }
+        .inp3 .border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: #07f;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+            transition: all 0.15s ease;
+        }
+
+        .inp1 input {
+            -webkit-appearance: none;
+            width: 100%;
+            border: 0;
+            font-family: inherit;
+            padding: 12px 0;
+            height: 48px;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 2px solid #c8ccd4;
+            background: none;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            color: #223254;
+            transition: all 0.15s ease;
+        }
+        .inp2 input {
+            -webkit-appearance: none;
+            width: 100%;
+            border: 0;
+            font-family: inherit;
+            padding: 12px 0;
+            height: 48px;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 2px solid #c8ccd4;
+            background: none;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            color: #223254;
+            transition: all 0.15s ease;
+        }
+        .inp3 input {
+            -webkit-appearance: none;
+            width: 100%;
+            border: 0;
+            font-family: inherit;
+            padding: 12px 0;
+            height: 48px;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 2px solid #c8ccd4;
+            background: none;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            color: #223254;
+            transition: all 0.15s ease;
+        }
+
+        .inp1 input:hover {
+            background: rgba(34, 50, 84, 0.03);
+        }
+        .inp2 input:hover {
+            background: rgba(34, 50, 84, 0.03);
+        }
+        .inp3 input:hover {
+            background: rgba(34, 50, 84, 0.03);
+        }
+
+        .inp1 input:not(:placeholder-shown)+span {
+            color: #5a667f;
+            transform: translateY(-26px) scale(0.75);
+        }
+        .inp2 input:not(:placeholder-shown)+span {
+            color: #5a667f;
+            transform: translateY(-26px) scale(0.75);
+        }
+        .inp3 input:not(:placeholder-shown)+span {
+            color: #5a667f;
+            transform: translateY(-26px) scale(0.75);
+        }
+
+        .inp1 input:focus {
+            background: none;
+            outline: none;
+        }
+        .inp2 input:focus {
+            background: none;
+            outline: none;
+        }
+        .inp3 input:focus {
+            background: none;
+            outline: none;
+        }
+
+        .inp1 input:focus+span {
+            color: #07f;
+            transform: translateY(-26px) scale(0.75);
+        }
+        .inp2 input:focus+span {
+            color: #07f;
+            transform: translateY(-26px) scale(0.75);
+        }
+        .inp3 input:focus+span {
+            color: #07f;
+            transform: translateY(-26px) scale(0.75);
+        }
+
+        .inp1 input:focus+span+.border {
+            transform: scaleX(1);
+        }
+        .inp2 input:focus+span+.border {
+            transform: scaleX(1);
+        }
+        .inp3 input:focus+span+.border {
+            transform: scaleX(1);
+        }
+
+        .section {
+            margin: auto;
+            background-color: #eee;
+        }
+
+        .butlink {
+            display: inline-block;
+            background-color: #f22;
+            color: white;
+            height: 48px;
+            position: absolute;
+            margin-left: 5px;
+            padding: 12px 10px 12px 10px;
+            border: rgba(34, 50, 84, 0.03) solid 0.5px;
+            border-radius: 4px;
+            
+        }
+        .butlink:hover{
+            background-color: #f44;
+            text-decoration: none;
+            color:white;
+        }
+        .butlink:active{
+            background-color: #f00;
+            margin-top: 0.5px;
+        }
+
+        ul {
+            padding: 20px;
+        }
+
+        li {
+            padding-bottom: 10px;
+            list-style: none;
+        }
+    </style>
+    <script>
+        inputString = "";
+        diziNode = new Array(0);
+        siraDiziNode = new Array(0);
+        siraDiziCountNode = new Array(0);
+        $(function () {
+            $("#diziYap").click(function () {
+                $(this).slideUp(500);
+                inputString = $(".diziDeger")[0].value; //text'e girilen değeri alıyoruz
+                dizi = diziOlustur(inputString); //girilen string'i diziye çeviriyoruz
+                maxVal = Math.max(...dizi);
+                siraDizi = new Array(maxVal);
+                for (var i = 0; i <= maxVal; i++) {
+                    if (dizi.indexOf(i) == -1) {
+                        siraDizi[i] = 0;
+                    } else {
+                        var c = degerSay(dizi, i);
+                        siraDizi[i] = c;
+                    }
+                }
+
+
+
+
+                for (var i = 0; i < dizi.length; i++) {
+                    diziNode.push(node("sira", dizi[i], i))
+                }
+                for (var i = 0; i <= maxVal; i++) {
+                    siraDiziNode.push(node("siraDiv", i, i));
+                }
+                for (var i = 0; i <= maxVal; i++) {
+                    siraDiziCountNode.push(node("degerDiv", 0, i));
+                }
+
+                var slDwn = 800;
+                var time = slDwn + 1000;
+                $("#sira").slideDown(slDwn);
+
+                setTimeout(function () {
+                    $("#siraP").text("0 - " + maxVal + " dizisi: ").slideDown(slDwn);
+                }, time);
+                time += 500;
+                setTimeout(function () {
+                    $("#siraDiv").slideDown(slDwn);
+                }, time);
+                time += 500;
+                setTimeout(function () {
+                    $("#degerDiv").slideDown(slDwn);
+                }, time);
+
+
+
+
+
+                siraDiziNodeColor(0);
+
+                diziNode[diziNode.length - 1].style.borderColor = "black";
+                siraDiziNode[siraDiziNode.length - 1].style.borderColor = "black";
+                siraDiziCountNode[siraDiziCountNode.length - 1].style.borderColor = "black";
+
+
+            });
+        });
+
+
+        function diziOlustur(toArr) {
+            //toArr = "0,5,6,7,8,1,2,5,6,2,6";
+            toArr = toArr.split(",");
+            toArr = toArr.map(function (x) {
+                return parseInt(x);
+            });
+            return toArr;
+        }
+        function node(appendNode, value, className) {
+            var node = document.createElement("div");
+            node.className = "node" + className;
+            node.style.width = "50px";
+            node.style.height = "50px";
+            //node.style.backgroundColor = "red";
+            node.style.border = "solid";
+            node.style.float = "left";
+            node.style.margin = "5px";
+            var nodeP = document.createElement("p");
+            nodeP.style.verticalAlign = "middle";
+            nodeP.style.textAlign = "center";
+            nodeP.style.color = "blue";
+            nodeP.innerHTML = value;
+            node.appendChild(nodeP);
+            var div = document.getElementById(appendNode)
+            div.appendChild(node);
+            return node;
+        }
+
+        function degerSay(arr, val) {
+            var count = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == val)
+                    count++;
+            }
+            return count;
+        }
+
+        function siraDiziNodeColor(counter) {
+            time = 9000;
+            if (counter == 0)
+                time = 5000;
+            if (counter < siraDiziNode.length) {
+                siraDiziNodeTxt = siraDiziNode[counter].getElementsByTagName("p")[0].innerHTML;
+                setTimeout(function () {
+                    siraDiziNode[counter].style.borderColor = "blue";
+                    siraDiziCountNode[counter].style.borderColor = "yellow";
+                    diziNodeColor(0, siraDiziNodeTxt, counter);
+                    diziNode[diziNode.length - 1].style.borderColor = "black";
+                    if (counter != 0) {
+                        siraDiziNode[counter - 1].style.borderColor = "black";
+                        siraDiziCountNode[counter - 1].style.borderColor = "black";
+                    }
+                    counter++;
+                    siraDiziNodeColor(counter);
+                }, time);
+            }
+        }
+
+
+        function diziNodeColor(counter, siraDiziNodeTxt, index) {
+            time = 100;
+            if (counter < diziNode.length) {
+                diziNodeTxt = diziNode[counter].getElementsByTagName("p")[0].innerHTML;
+                siraDiziCountTxt = siraDiziCountNode[index].getElementsByTagName("p")[0].innerHTML;
+                siraDiziCountTxt = parseInt(siraDiziCountTxt);
+                setTimeout(function () {
+                    diziNode[counter].style.borderColor = "red";
+
+                    if (siraDiziNodeTxt == diziNodeTxt) {
+                        $("#degerDiv > div.node" + index + " > p").animate({
+                            fontSize: '25px'
+                        });
+                        siraDiziCountTxt += 1;
+                        siraDiziCountNode[index].getElementsByTagName("p")[0].innerHTML = siraDiziCountTxt;
+
+                    }
+
+                    if (counter != 0) {
+                        diziNode[counter - 1].style.borderColor = "black";
+                    }
+                    counter++;
+                    diziNodeColor(counter, siraDiziNodeTxt, index);
+                }, time);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="section">
+        <ul>
+            <li><label for="inp1" class="inp1">
+                    <input type="text" id="inp1" placeholder="&nbsp;">
+                    <span class="label">Maksimum Sayı Sınırı</span>
+                    <span class="border"></span>
+                </label>
+                <label for="inp2" class="inp2">
+                    <input type="text" id="inp2" placeholder="&nbsp;">
+                    <span class="label">Dizi Uzunluğu</span>
+                    <span class="border"></span>
+                </label>
+                <a href="#" class="butlink">Rastgele Oluştur</a></li>
+            <li><label for="inp3" class="inp3" style="max-width: 564px;">
+                    <input class="diziDeger" type="text" id="inp3" placeholder="&nbsp;">
+                    <span class="label">Sıralanacak Dizi</span>
+                    <span class="border"></span>
+                </label>
+                <a href="#" class="butlink" id="diziYap">Dizi Oluştur</a></li>
+        </ul>
+        <div id="sira" style="height: 100px; margin: 3px; display: none"></div>
+
+
+
+        <div id="deger">
+            <p id="siraP" style="display: none">asdasd</p>
+            <div id="siraDiv" style="clear:left; display: none">
+
+            </div>
+            <div id="degerDiv" style="clear:left; display: none;">
+
+            </div>
+        </div>
+        <div id="siraliDiv" style="clear: left;">
+
+        </div>
+    </div>
+</body>
+
+</html>
