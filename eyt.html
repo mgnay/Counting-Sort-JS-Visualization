@@ -358,49 +358,6 @@
             }
             return count;
         }
-        function siraDiziNodeColor(counter) {
-            time = 9000;
-            if (counter == 0)
-                time = 5000;
-            if (counter < siraDiziNode.length) {
-                siraDiziNodeTxt = siraDiziNode[counter].getElementsByTagName("p")[0].innerHTML;
-                setTimeout(function () {
-                    siraDiziNode[counter].style.borderColor = "blue";
-                    siraDiziCountNode[counter].style.borderColor = "yellow";
-                    diziNodeColor(0, siraDiziNodeTxt, counter);
-                    inputArrayNodes[inputArrayNodes.length - 1].style.borderColor = "black";
-                    if (counter != 0) {
-                        siraDiziNode[counter - 1].style.borderColor = "black";
-                        siraDiziCountNode[counter - 1].style.borderColor = "black";
-                    }
-                    counter++;
-                    siraDiziNodeColor(counter);
-                }, time);
-            }
-        }
-        function diziNodeColor(counter, siraDiziNodeTxt, index) {
-            time = 100;
-            if (counter < inputArrayNodes.length) {
-                diziNodeTxt = inputArrayNodes[counter].getElementsByTagName("p")[0].innerHTML;
-                siraDiziCountTxt = siraDiziCountNode[index].getElementsByTagName("p")[0].innerHTML;
-                siraDiziCountTxt = parseInt(siraDiziCountTxt);
-                setTimeout(function () {
-                    inputArrayNodes[counter].style.borderColor = "red";
-                    if (siraDiziNodeTxt == diziNodeTxt) {
-                        $("#degerDiv > div.node" + index + " > p").animate({
-                            fontSize: '25px'
-                        });
-                        siraDiziCountTxt += 1;
-                        siraDiziCountNode[index].getElementsByTagName("p")[0].innerHTML = siraDiziCountTxt;
-                    }
-                    if (counter != 0) {
-                        inputArrayNodes[counter - 1].style.borderColor = "black";
-                    }
-                    counter++;
-                    diziNodeColor(counter, siraDiziNodeTxt, index);
-                }, time);
-            }
-        }
     </script>
 </head>
 
