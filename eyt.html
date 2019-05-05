@@ -208,6 +208,7 @@
         .section {
             margin: auto;
             background-color: #eee;
+            min-height:500px;
         }
         .butlink1 {
             display: inline-block;
@@ -333,14 +334,16 @@
             node.className = "node" + className;
             node.style.width = "50px";
             node.style.height = "50px";
-            //node.style.backgroundColor = "red";
-            node.style.border = "solid";
+            node.style.backgroundColor = "rgba(40, 200, 40, 0.8)";
+            node.style.border = "rgba(34, 50, 84, 0.03) solid 0.5px";
+            node.style.borderRadius="100%";
             node.style.float = "left";
             node.style.margin = "5px";
             var nodeP = document.createElement("p");
             nodeP.style.verticalAlign = "middle";
             nodeP.style.textAlign = "center";
-            nodeP.style.color = "blue";
+            nodeP.style.color = "white";
+            nodeP.style.lineHeight="50px";
             nodeP.innerHTML = value;
             node.appendChild(nodeP);
             var div = document.getElementById(appendNode)
@@ -426,7 +429,7 @@
         </li>
     </ul>
     <div class="visual">
-        <div id="sira" style="height: 100px; display: none"></div>
+        <div id="sira" style="height: 100px;"></div>
         <div id="deger">
             <h3 id="siraP" style="display: none"></h3>
             <div id="siraDiv" style="clear:left; display: none">
