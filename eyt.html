@@ -220,7 +220,7 @@
             background-color: #eee;
         }
 
-        .butlink {
+        .butlink1 {
             display: inline-block;
             background-color: #f22;
             color: white;
@@ -230,26 +230,61 @@
             padding: 12px 10px 12px 10px;
             border: rgba(34, 50, 84, 0.03) solid 0.5px;
             border-radius: 4px;
+            position: relative;
+            width: 150px;
+            text-align: center;
             
         }
-        .butlink:hover{
+        .butlink2 {
+            display: inline-block;
+            background-color: #f22;
+            color: white;
+            height: 48px;
+            position: absolute;
+            margin-left: 5px;
+            padding: 12px 10px 12px 10px;
+            border: rgba(34, 50, 84, 0.03) solid 0.5px;
+            border-radius: 4px;
+            position: relative;
+            width: 129px;
+            text-align: center;
+            
+        }
+        .butlink1:hover{
             background-color: #f44;
             text-decoration: none;
             color:white;
         }
-        .butlink:active{
+        .butlink1:active{
+            background-color: #f00;
+            margin-top: 0.5px;
+        }
+        .butlink2:hover{
+            background-color: #f44;
+            text-decoration: none;
+            color:white;
+        }
+        .butlink2:active{
             background-color: #f00;
             margin-top: 0.5px;
         }
 
         ul {
             padding: 20px;
+            margin: 0;
         }
 
         li {
             padding-bottom: 10px;
             list-style: none;
         }
+        .visual{
+            padding: 20px;
+        }
+        #siraP{
+            margin-left: 20px;
+        }
+
     </style>
     <script>
         inputString = "";
@@ -418,20 +453,21 @@
                     <span class="label">Dizi Uzunluğu</span>
                     <span class="border"></span>
                 </label>
-                <a href="#" class="butlink">Rastgele Oluştur</a></li>
-            <li><label for="inp3" class="inp3" style="max-width: 564px;">
+                <a href="#" class="butlink1">Rastgele Oluştur</a></li>
+            <li><label for="inp3" class="inp3" style="max-width: 565px;">
                     <input class="diziDeger" type="text" id="inp3" placeholder="&nbsp;">
                     <span class="label">Sıralanacak Dizi</span>
                     <span class="border"></span>
                 </label>
-                <a href="#" class="butlink" id="diziYap">Dizi Oluştur</a></li>
+                <a href="#" class="butlink1" id="diziYap">Dizi Oluştur</a></li>
+                <li>
+                    <a href="#" class="butlink2">Başlat</a><a href="#" class="butlink2">Devam Et</a><a href="#" class="butlink2">Durdur</a><a href="#" class="butlink2">Yeniden Başlat</a>
+                </li>
         </ul>
-        <div id="sira" style="height: 100px; margin: 3px; display: none"></div>
-
-
-
+        <div class="visual">
+        <div id="sira" style="height: 100px; display: none"></div>
         <div id="deger">
-            <p id="siraP" style="display: none">asdasd</p>
+            <h3 id="siraP" style="display: none"></h3>
             <div id="siraDiv" style="clear:left; display: none">
 
             </div>
@@ -442,6 +478,7 @@
         <div id="siraliDiv" style="clear: left;">
 
         </div>
+    </div>
     </div>
 </body>
 
