@@ -284,8 +284,15 @@
         var slDwn = 800;
         var time = slDwn + 1000;
         $(function () {
-            $("#diziYap").click(function () {
-                inputString = $(".diziDeger")[0].value;
+            $('#buton1').click(function () {
+                inputString = "";
+                sayiSiniri = parseInt($('#inp1')[0].value);
+                diziUzunlugu = parseInt($('#inp2')[0].value);
+                for (let i = 0; i < diziUzunlugu - 1; i++) {
+                    inputString += Math.round(Math.random() * sayiSiniri) + ",";
+                }
+                inputString += Math.round(Math.random() * sayiSiniri);
+                console.log(inputString);
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
 
@@ -305,6 +312,36 @@
                         countValArr[i] = c;
                     }
                 }
+                
+            });
+
+
+
+
+
+            $("#diziYap").click(function () {
+                inputString = "";
+                inputString = $(".diziDeger")[0].value;
+                console.log(inputString);
+                inputArray = diziOlustur(inputString);
+                maxVal = Math.max(...inputArray);
+
+                for (var i = 0; i < inputArray.length; i++) {
+                    inputArrayNodes.push(node("sira", inputArray[i], i))
+                }
+
+                /*$("#sira").slideDown(slDwn);
+
+
+                countValArr = new Array(maxVal);
+                for (var i = 0; i <= maxVal; i++) {
+                    if (inputArray.indexOf(i) == -1) {
+                        countValArr[i] = 0;
+                    } else {
+                        var c = degerSay(inputArray, i);
+                        countValArr[i] = c;
+                    }
+                }*/
             });
 
             $('a.butlink2').click(function () {
@@ -373,7 +410,7 @@
                 <span class="label">Dizi Uzunluğu</span>
                 <span class="border"></span>
             </label>
-            <a href="#" class="butlink1">Rastgele Oluştur</a></li>
+            <a href="#" id="buton1" class="butlink1">Rastgele Oluştur</a></li>
         <li><label for="inp3" class="inp3" style="max-width: 565px;">
             <input class="diziDeger" type="text" id="inp3" placeholder="&nbsp;">
             <span class="label">Sıralanacak Dizi</span>
