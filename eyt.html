@@ -240,23 +240,15 @@
             text-align: center;
 
         }
-        .butlink1:hover{
+        a:hover{
             background-color: #f44;
             text-decoration: none;
             color:white;
         }
-        .butlink1:active{
+        a:active{
             background-color: #f00;
             margin-top: 0.5px;
         }
-        .butlink2:hover{
-            background-color: #f44;
-            text-decoration: none;
-            color:white;
-        }
-        .butlink2:active{
-            background-color: #f00;
-            margin-top: 0.5px;
         }
         ul {
             padding: 20px;
@@ -337,6 +329,10 @@
         var time = slDwn + 1000;
         $(function () {
             $('#buton1').click(function () {
+                $("#sira").empty();
+                $("#siraDiv").empty();
+                $("#degerDiv").empty();
+                $("#siraliDiv").empty();
                 inputString = "";   
                 if(isNaN($("#inp1"))){
                     sayiSiniri = 9;
@@ -382,6 +378,10 @@
 
             $("#diziYap").click(function () {
                 inputString = "";
+                $("#sira").empty();
+                $("#siraDiv").empty();
+                $("#degerDiv").empty();
+                $("#siraliDiv").empty();
                 inputString = $(".diziDeger")[0].value;
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
@@ -405,6 +405,9 @@
             });
 
             $('a.butlink2').click(function () {
+                $("#siraDiv").empty();
+                $("#degerDiv").empty();
+                $("#siraliDiv").empty();
                 for (var i = 0; i <= maxVal; i++) {
                     node("siraDiv", i, i);
                 }
@@ -483,7 +486,7 @@
 
             </div>
         </div>
-        <div id="siraliDiv" style="clear: left;">
+        <div id="siraliDiv" style="clear: left; height: 100px;">
 
         </div>
     </div>
