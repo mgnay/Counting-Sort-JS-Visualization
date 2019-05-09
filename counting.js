@@ -11,17 +11,16 @@ function slideDownDegerDiv() {
 function countValArrColor(counter) {
 
     //Renk
-    b = $('#sira')[0].getElementsByTagName("div").length;
+    b = $('#sira div').length;
     b = b - 1;
-    c = $('#sira')[0].getElementsByClassName("node" + b)[0].style.borderColor = "black";
+    $('#sira .node' + b).removeAttr('id').attr('id', 'node');
     //Renk
 
 
     if (counter < countValArr.length) {
 
         //Renk
-        var a = $("#siraDiv")[0].getElementsByClassName("node" + counter)[0];
-        a.style.borderColor = "red";
+        $('#siraDiv .node' + counter).removeAttr('id').attr('id', 'nodeRed');
         //Renk
 
 
@@ -37,29 +36,28 @@ function inputArrayNodesColor(counter, upperCounter) {
             d = counter - 1;
 
             //Renk
-            var b = $('#sira')[0].getElementsByClassName("node" + d)[0];
-            b.style.borderColor = "black";
+            $('#sira .node' + d).removeAttr('id').attr('id', 'node');
             //Renk
 
         }
         a = $('#sira')[0].getElementsByClassName("node" + counter)[0];
-        val = a.getElementsByTagName('p')[0].innerHTML;
-        upperVal = $('#siraDiv')[0].getElementsByClassName("node" + upperCounter)[0].getElementsByTagName('p')[0].innerHTML;
-        degerDiv = $('#degerDiv')[0].getElementsByClassName("node" + upperCounter)[0].getElementsByTagName('p')[0];
-        //console.log(upperVal, val);
+        val = $('#sira .node' + counter + ' p').text();
+        upperVal = $('#siraDiv .node' + upperCounter + ' p').text();
+        degerDiv = $('#degerDiv .node' + upperCounter + ' p');
 
         if (upperVal == val) {
-            degerDiv.innerHTML = parseInt(degerDiv.innerHTML) + 1;
+            console.log(degerDiv.text());
+            degerDiv.text(parseInt(degerDiv.text()) + 1);
         }
         //Renk
-        a.style.borderColor = "blue";
+        $('#sira .node' + counter).removeAttr('id').attr('id', 'nodeBlue');
         //Renk
 
 
         counter++;
         setTimeout(inputArrayNodesColor, 100, counter, upperCounter);
     }else {
-        $("#siraDiv")[0].getElementsByClassName("node" + upperCounter)[0].style.borderColor = "black";
+        $('#siraDiv .node' + upperCounter).removeAttr('id').attr('id', 'node');
         upperCounter++;
         setTimeout(countValArrColor, 1000, upperCounter);
     }
@@ -73,14 +71,18 @@ function inputArrayNodesColor(counter, upperCounter) {
 
 
 function siraDivColor(index) {
-    length = $('#degerDiv')[0].getElementsByTagName('div').length;
+    //length = $('#degerDiv')[0].getElementsByTagName('div').length;
+    length = $('#degerDiv div').length;
     if (length > index) {
+
+        if (index > 0) {
+            $('#siraDiv .node' + (index - 1)).removeAttr('id').attr('id', 'node');
+        }
         //Renk
-        a = $('#siraDiv')[0].getElementsByClassName('node' + index)[0];
-        a.style.borderColor = "red";
+        $('#siraDiv .node' + index).removeAttr('id').attr('id', 'nodeRed');
         //Renk
 
-        val = $('#degerDiv')[0].getElementsByClassName('node' + index)[0].getElementsByTagName('p')[0].innerHTML;
+        val = $('#degerDiv .node' + index + ' p').text();
         setTimeout(degerDivColor, 1000, index, val);
 
     }
@@ -89,10 +91,12 @@ function siraDivColor(index) {
 
 function degerDivColor(upperIndex ,val) {
 
+    if (upperIndex > 0) {
+        $('#degerDiv .node' + (upperIndex - 1)).removeAttr('id').attr('id', 'node');
+    }
 
     //Renk
-    div = $('#degerDiv')[0].getElementsByClassName('node' + upperIndex)[0];
-    div.style.borderColor = "blue";
+    $('#degerDiv .node' + upperIndex).removeAttr('id').attr('id', 'nodeBlue');
     //Renk
 
 

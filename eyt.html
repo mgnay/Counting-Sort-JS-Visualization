@@ -273,6 +273,58 @@
             margin-left: 20px;
         }
     </style>
+    <style>
+        #node {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(40, 200, 40, 0.8);
+            border: rgba(34, 50, 84, 0.03) solid 0.5px;
+            border-radius: 100%;
+            float: left;
+            margin: 5px;
+        }
+
+        #nodeSelected {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(42, 171, 231, 0.8);
+            /*border: rgba(34, 50, 84, 0.03) solid 0.5px;*/
+            /*border-radius: 80%;*/
+            float: left;
+            margin: 5px;
+        }
+        #nodeRed {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border: rgba(34, 50, 84, 0.03) solid 0.5px;
+            border-radius: 50%;
+            float: left;
+            margin: 5px;
+        }#nodeBlack {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            border: rgba(34, 50, 84, 0.03) solid 0.5px;
+            border-radius: 50%;
+            float: left;
+            margin: 5px;
+        }#nodeBlue {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            border: rgba(34, 50, 84, 0.03) solid 0.5px;
+            border-radius: 50%;
+            float: left;
+            margin: 5px;
+        }
+        #nodeP {
+            vertical-align: middle;
+            text-align: center;
+            color: white;
+            line-height: 50px;
+        }
+    </style>
     <script>
         inputString = "";
         inputArray = "";
@@ -292,7 +344,6 @@
                     inputString += Math.round(Math.random() * sayiSiniri) + ",";
                 }
                 inputString += Math.round(Math.random() * sayiSiniri);
-                console.log(inputString);
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
 
@@ -322,7 +373,6 @@
             $("#diziYap").click(function () {
                 inputString = "";
                 inputString = $(".diziDeger")[0].value;
-                console.log(inputString);
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
 
@@ -330,7 +380,7 @@
                     inputArrayNodes.push(node("sira", inputArray[i], i))
                 }
 
-                /*$("#sira").slideDown(slDwn);
+                $("#sira").slideDown(slDwn);
 
 
                 countValArr = new Array(maxVal);
@@ -341,7 +391,7 @@
                         var c = degerSay(inputArray, i);
                         countValArr[i] = c;
                     }
-                }*/
+                }
             });
 
             $('a.butlink2').click(function () {
@@ -368,22 +418,13 @@
         function node(appendNode, value, className) {
             var node = document.createElement("div");
             node.className = "node" + className;
-            node.style.width = "50px";
-            node.style.height = "50px";
-            node.style.backgroundColor = "rgba(40, 200, 40, 0.8)";
-            node.style.border = "rgba(34, 50, 84, 0.03) solid 0.5px";
-            node.style.borderRadius="100%";
-            node.style.float = "left";
-            node.style.margin = "5px";
+            node.id = 'node';
             var nodeP = document.createElement("p");
             nodeP.style.verticalAlign = "middle";
-            nodeP.style.textAlign = "center";
-            nodeP.style.color = "white";
-            nodeP.style.lineHeight="50px";
+            nodeP.id = 'nodeP';
             nodeP.innerHTML = value;
             node.appendChild(nodeP);
-            var div = document.getElementById(appendNode)
-            div.appendChild(node);
+            $('#' + appendNode).append(node);
             return node;
         }
         function degerSay(arr, val) {
