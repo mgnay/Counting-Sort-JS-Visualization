@@ -337,9 +337,19 @@
         var time = slDwn + 1000;
         $(function () {
             $('#buton1').click(function () {
-                inputString = "";
-                sayiSiniri = parseInt($('#inp1')[0].value);
-                diziUzunlugu = parseInt($('#inp2')[0].value);
+                inputString = "";   
+                if(isNaN($("#inp1"))){
+                    sayiSiniri = 9;
+                }
+                else{
+                    sayiSiniri = parseInt($('#inp1')[0].value);
+                }
+                if(isNaN($("#inp2"))){
+                    diziUzunlugu = 10;
+                }
+                else{
+                    diziUzunlugu = parseInt($('#inp2')[0].value);
+                }
                 for (let i = 0; i < diziUzunlugu - 1; i++) {
                     inputString += Math.round(Math.random() * sayiSiniri) + ",";
                 }
@@ -469,7 +479,7 @@
             <div id="siraDiv" style="clear:left; display: none">
 
             </div>
-            <div id="degerDiv" style="clear:left; display: none;">
+            <div id="degerDiv" style="clear:left; display: none; height: 100px;">
 
             </div>
         </div>
