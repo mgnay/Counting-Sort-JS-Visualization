@@ -10,7 +10,7 @@
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="counting.js"></script>
+    <script src="counting2.js"></script>
 
     <style type="text/css">
         body {
@@ -210,7 +210,7 @@
             background-color: #eee;
             min-height:500px;
         }
-        .butlink1 {
+        .baslat, .devam_et, .durdur, .yeniden_baslat, .butlink1, .butlink2 {
             display: inline-block;
             background-color: #f22;
             color: white;
@@ -225,7 +225,7 @@
             text-align: center;
 
         }
-        .butlink2 {
+        .baslat {
             display: inline-block;
             background-color: #f22;
             color: white;
@@ -240,15 +240,23 @@
             text-align: center;
 
         }
-        a:hover{
+        .butlink1:hover{
             background-color: #f44;
             text-decoration: none;
             color:white;
         }
-        a:active{
+        .butlink1:active{
             background-color: #f00;
             margin-top: 0.5px;
         }
+        .baslat:hover, .devam_et:hover, .durdur:hover, .yeniden_baslat:hover, .butlink1:hover, .butlink2:hover{
+            background-color: #f44;
+            text-decoration: none;
+            color:white;
+        }
+        .baslat:active, .devam_et:active, .durdur:active, .yeniden_baslat:active, .butlink1:active, .butlink2:active{
+            background-color: #f00;
+            margin-top: 0.5px;
         }
         ul {
             padding: 20px;
@@ -326,26 +334,19 @@
         siraDiziNode = new Array(0);
         siraDiziCountNode = new Array(0);
         var slDwn = 800;
-        var time = slDwn + 1000;
+        var stTmOut;
+        var startTime;
+        var currenttime;
+        var clock = slDwn + 1000;
+        var fonkName = "";
+        var params = new Array(0);
+        var funcs;
+
         $(function () {
             $('#buton1').click(function () {
-                $("#sira").empty();
-                $("#siraDiv").empty();
-                $("#degerDiv").empty();
-                $("#siraliDiv").empty();
-                inputString = "";   
-                if(isNaN($("#inp1"))){
-                    sayiSiniri = 9;
-                }
-                else{
-                    sayiSiniri = parseInt($('#inp1')[0].value);
-                }
-                if(isNaN($("#inp2"))){
-                    diziUzunlugu = 10;
-                }
-                else{
-                    diziUzunlugu = parseInt($('#inp2')[0].value);
-                }
+                inputString = "";
+                sayiSiniri = parseInt($('#inp1')[0].value);
+                diziUzunlugu = parseInt($('#inp2')[0].value);
                 for (let i = 0; i < diziUzunlugu - 1; i++) {
                     inputString += Math.round(Math.random() * sayiSiniri) + ",";
                 }
@@ -369,7 +370,7 @@
                         countValArr[i] = c;
                     }
                 }
-                
+
             });
 
 
@@ -378,10 +379,6 @@
 
             $("#diziYap").click(function () {
                 inputString = "";
-                $("#sira").empty();
-                $("#siraDiv").empty();
-                $("#degerDiv").empty();
-                $("#siraliDiv").empty();
                 inputString = $(".diziDeger")[0].value;
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
@@ -404,21 +401,23 @@
                 }
             });
 
-            $('a.butlink2').click(function () {
-                $("#siraDiv").empty();
-                $("#degerDiv").empty();
-                $("#siraliDiv").empty();
+            $('a.baslat').click(function () {
                 for (var i = 0; i <= maxVal; i++) {
                     node("siraDiv", i, i);
                 }
                 for (var i = 0; i <= maxVal; i++) {
                     node("degerDiv", 0, i);
                 }
-                setTimeout(slideDownSiraDiv, 0);
+                stTmOut = setTimeout(slideDownSiraDiv, 0);
             });
 
-
-
+            $('a.durdur').click(function () {
+                currenttime = new Date().getTime();
+                clearTimeout(stTmOut);
+            });
+            $('a.devam_et').click(function () {
+                stTmOut = setTimeout(funcs[fonkName], clock - (currenttime - startTime), params[0], params[1], params[2]);
+            });
 
         });
         function diziOlustur(toArr) {
@@ -472,7 +471,7 @@
         </label>
             <a href="#" class="butlink1" id="diziYap">Dizi Oluştur</a></li>
         <li>
-            <a href="#" class="butlink2">Başlat</a><a href="#" class="butlink2">Devam Et</a><a href="#" class="butlink2">Durdur</a><a href="#" class="butlink2">Yeniden Başlat</a>
+            <a href="#" class="baslat">Başlat</a><a href="#" class="devam_et">Devam Et</a><a href="#" class="durdur">Durdur</a><a href="#" class="yeniden_baslat">Yeniden Başlat</a>
         </li>
     </ul>
     <div class="visual">
@@ -482,11 +481,11 @@
             <div id="siraDiv" style="clear:left; display: none">
 
             </div>
-            <div id="degerDiv" style="clear:left; display: none; height: 100px;">
+            <div id="degerDiv" style="clear:left; display: none;">
 
             </div>
         </div>
-        <div id="siraliDiv" style="clear: left; height: 100px;">
+        <div id="siraliDiv" style="clear: left;">
 
         </div>
     </div>
