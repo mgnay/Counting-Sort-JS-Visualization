@@ -62,12 +62,15 @@ funcs = {
             degerDiv = $('#degerDiv .node' + upperCounter + ' p');
 
             if (upperVal == val) {
-                console.log(degerDiv.text());
                 degerDiv.text(parseInt(degerDiv.text()) + 1);
+                //Renk
+                $('#sira .node' + counter).removeAttr('id').attr('id', 'nodeMatch');
+                //Renk
+            }else {
+                //Renk
+                $('#sira .node' + counter).removeAttr('id').attr('id', 'nodeBlue');
+                //Renk
             }
-            //Renk
-            $('#sira .node' + counter).removeAttr('id').attr('id', 'nodeBlue');
-            //Renk
 
 
             counter++;
