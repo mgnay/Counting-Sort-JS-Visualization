@@ -5,38 +5,42 @@
     <meta charset="UTF-8">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="counting.js"></script>
 
     <style type="text/css">
         body {
             background-color: #ccc;
-            font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
             -webkit-text-size-adjust: 100%;
             -webkit-font-smoothing: antialiased;
         }
+
         .inp1 {
             position: relative;
             margin: auto;
             width: 100%;
             max-width: 280px;
         }
+
         .inp2 {
             position: relative;
             margin: auto;
             width: 100%;
             max-width: 280px;
         }
+
         .inp3 {
             position: relative;
             margin: auto;
             width: 100%;
             max-width: 280px;
         }
+
         .inp1 .label {
             position: absolute;
             top: 16px;
@@ -48,6 +52,7 @@
             transition: all 0.2s ease;
 
         }
+
         .inp2 .label {
             position: absolute;
             top: 16px;
@@ -59,6 +64,7 @@
             transition: all 0.2s ease;
 
         }
+
         .inp3 .label {
             position: absolute;
             top: 16px;
@@ -70,6 +76,7 @@
             transition: all 0.2s ease;
 
         }
+
         .inp1 .border {
             position: absolute;
             bottom: 0;
@@ -81,6 +88,7 @@
             transform-origin: 0 0;
             transition: all 0.15s ease;
         }
+
         .inp2 .border {
             position: absolute;
             bottom: 0;
@@ -92,6 +100,7 @@
             transform-origin: 0 0;
             transition: all 0.15s ease;
         }
+
         .inp3 .border {
             position: absolute;
             bottom: 0;
@@ -103,6 +112,7 @@
             transform-origin: 0 0;
             transition: all 0.15s ease;
         }
+
         .inp1 input {
             -webkit-appearance: none;
             width: 100%;
@@ -119,6 +129,7 @@
             color: #223254;
             transition: all 0.15s ease;
         }
+
         .inp2 input {
             -webkit-appearance: none;
             width: 100%;
@@ -135,6 +146,7 @@
             color: #223254;
             transition: all 0.15s ease;
         }
+
         .inp3 input {
             -webkit-appearance: none;
             width: 100%;
@@ -151,66 +163,88 @@
             color: #223254;
             transition: all 0.15s ease;
         }
+
         .inp1 input:hover {
             background: rgba(34, 50, 84, 0.03);
         }
+
         .inp2 input:hover {
             background: rgba(34, 50, 84, 0.03);
         }
+
         .inp3 input:hover {
             background: rgba(34, 50, 84, 0.03);
         }
+
         .inp1 input:not(:placeholder-shown)+span {
             color: #5a667f;
             transform: translateY(-26px) scale(0.75);
         }
+
         .inp2 input:not(:placeholder-shown)+span {
             color: #5a667f;
             transform: translateY(-26px) scale(0.75);
         }
+
         .inp3 input:not(:placeholder-shown)+span {
             color: #5a667f;
             transform: translateY(-26px) scale(0.75);
         }
+
         .inp1 input:focus {
             background: none;
             outline: none;
         }
+
         .inp2 input:focus {
             background: none;
             outline: none;
         }
+
         .inp3 input:focus {
             background: none;
             outline: none;
         }
+
         .inp1 input:focus+span {
             color: #07f;
             transform: translateY(-26px) scale(0.75);
         }
+
         .inp2 input:focus+span {
             color: #07f;
             transform: translateY(-26px) scale(0.75);
         }
+
         .inp3 input:focus+span {
             color: #07f;
             transform: translateY(-26px) scale(0.75);
         }
+
         .inp1 input:focus+span+.border {
             transform: scaleX(1);
         }
+
         .inp2 input:focus+span+.border {
             transform: scaleX(1);
         }
+
         .inp3 input:focus+span+.border {
             transform: scaleX(1);
         }
+
         .section {
             margin: auto;
             background-color: #eee;
-            min-height:500px;
+            min-height: 500px;
         }
-        .baslat, .devam_et, .durdur, .yeniden_baslat, .butlink1, .butlink2 {
+
+        .baslat,
+        .devam_et,
+        .durdur,
+        .yeniden_baslat,
+        .butlink1,
+        .butlink2 {
             display: inline-block;
             background-color: #f22;
             color: white;
@@ -225,6 +259,7 @@
             text-align: center;
 
         }
+
         .baslat {
             display: inline-block;
             background-color: #f22;
@@ -240,36 +275,54 @@
             text-align: center;
 
         }
-        .butlink1:hover{
+
+        .butlink1:hover {
             background-color: #f44;
             text-decoration: none;
-            color:white;
+            color: white;
         }
-        .butlink1:active{
+
+        .butlink1:active {
             background-color: #f00;
             margin-top: 0.5px;
         }
-        .baslat:hover, .devam_et:hover, .durdur:hover, .yeniden_baslat:hover, .butlink1:hover, .butlink2:hover{
+
+        .baslat:hover,
+        .devam_et:hover,
+        .durdur:hover,
+        .yeniden_baslat:hover,
+        .butlink1:hover,
+        .butlink2:hover {
             background-color: #f44;
             text-decoration: none;
-            color:white;
+            color: white;
         }
-        .baslat:active, .devam_et:active, .durdur:active, .yeniden_baslat:active, .butlink1:active, .butlink2:active{
+
+        .baslat:active,
+        .devam_et:active,
+        .durdur:active,
+        .yeniden_baslat:active,
+        .butlink1:active,
+        .butlink2:active {
             background-color: #f00;
             margin-top: 0.5px;
         }
+
         ul {
             padding: 20px;
             margin: 0;
         }
+
         li {
             padding-bottom: 10px;
             list-style: none;
         }
-        .visual{
+
+        .visual {
             padding: 20px;
         }
-        #siraP{
+
+        #siraP {
             margin-left: 20px;
         }
     </style>
@@ -293,6 +346,7 @@
             float: left;
             margin: 5px;
         }
+
         #nodeRed {
             width: 50px;
             height: 50px;
@@ -301,7 +355,9 @@
             border-radius: 50%;
             float: left;
             margin: 5px;
-        }#nodeBlack {
+        }
+
+        #nodeBlack {
             width: 50px;
             height: 50px;
             background-color: black;
@@ -309,7 +365,9 @@
             border-radius: 50%;
             float: left;
             margin: 5px;
-        }#nodeBlue {
+        }
+
+        #nodeBlue {
             width: 50px;
             height: 50px;
             background-color: blue;
@@ -318,6 +376,7 @@
             float: left;
             margin: 5px;
         }
+
         #nodeP {
             vertical-align: middle;
             text-align: center;
@@ -349,8 +408,18 @@
                 $("#siraDiv").empty();
                 $("#degerDiv").empty();
                 $("#siraliDiv").empty();
-                sayiSiniri = parseInt($('#inp1')[0].value);
-                diziUzunlugu = parseInt($('#inp2')[0].value);
+                if (isNaN($("#inp1"))) {
+                    sayiSiniri = 9;
+                }
+                else {
+                    sayiSiniri = parseInt($('#inp1')[0].value);
+                }
+                if (isNaN($("#inp2"))) {
+                    diziUzunlugu = 10;
+                }
+                else {
+                    diziUzunlugu = parseInt($('#inp2')[0].value);
+                }
                 for (let i = 0; i < diziUzunlugu - 1; i++) {
                     inputString += Math.round(Math.random() * sayiSiniri) + ",";
                 }
@@ -459,45 +528,46 @@
 </head>
 
 <body>
-<div class="section">
-    <ul>
-        <li><label for="inp1" class="inp1">
-            <input type="text" id="inp1" placeholder="&nbsp;">
-            <span class="label">Maksimum Sayı Sınırı</span>
-            <span class="border"></span>
-        </label>
-            <label for="inp2" class="inp2">
-                <input type="text" id="inp2" placeholder="&nbsp;">
-                <span class="label">Dizi Uzunluğu</span>
-                <span class="border"></span>
-            </label>
-            <a href="#" id="buton1" class="butlink1">Rastgele Oluştur</a></li>
-        <li><label for="inp3" class="inp3" style="max-width: 565px;">
-            <input class="diziDeger" type="text" id="inp3" placeholder="&nbsp;">
-            <span class="label">Sıralanacak Dizi</span>
-            <span class="border"></span>
-        </label>
-            <a href="#" class="butlink1" id="diziYap">Dizi Oluştur</a></li>
-        <li>
-            <a href="#" class="baslat">Başlat</a><a href="#" class="devam_et">Devam Et</a><a href="#" class="durdur">Durdur</a><a href="#" class="yeniden_baslat">Yeniden Başlat</a>
-        </li>
-    </ul>
-    <div class="visual">
-        <div id="sira" style="height: 100px;"></div>
-        <div id="deger" style="height: 150px;">
-            <h3 id="siraP" style="display: none"></h3>
-            <div id="siraDiv" style="clear:left; display: none">
+    <div class="section">
+        <ul>
+            <li><label for="inp1" class="inp1">
+                    <input type="text" id="inp1" placeholder="&nbsp;">
+                    <span class="label">Maksimum Sayı Sınırı</span>
+                    <span class="border"></span>
+                </label>
+                <label for="inp2" class="inp2">
+                    <input type="text" id="inp2" placeholder="&nbsp;">
+                    <span class="label">Dizi Uzunluğu</span>
+                    <span class="border"></span>
+                </label>
+                <a href="#" id="buton1" class="butlink1">Rastgele Oluştur</a></li>
+            <li><label for="inp3" class="inp3" style="max-width: 565px;">
+                    <input class="diziDeger" type="text" id="inp3" placeholder="&nbsp;">
+                    <span class="label">Sıralanacak Dizi</span>
+                    <span class="border"></span>
+                </label>
+                <a href="#" class="butlink1" id="diziYap">Dizi Oluştur</a></li>
+            <li>
+                <a href="#" class="baslat">Başlat</a><a href="#" class="devam_et">Devam Et</a><a href="#"
+                    class="durdur">Durdur</a><a href="#" class="yeniden_baslat">Yeniden Başlat</a>
+            </li>
+        </ul>
+        <div class="visual">
+            <div id="sira" style="height: 100px;"></div>
+            <div id="deger" style="height: 150px;">
+                <h3 id="siraP" style="display: none"></h3>
+                <div id="siraDiv" style="clear:left; display: none">
+
+                </div>
+                <div id="degerDiv" style="clear:left; display: none;">
+
+                </div>
+            </div>
+            <div id="siraliDiv" style="clear: left; height: 100px;">
 
             </div>
-            <div id="degerDiv" style="clear:left; display: none;">
-
-            </div>
-        </div>
-        <div id="siraliDiv" style="clear: left; height: 100px;">
-
         </div>
     </div>
-</div>
 </body>
 
 </html>
