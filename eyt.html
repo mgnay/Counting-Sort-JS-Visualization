@@ -408,13 +408,17 @@
                 $("#siraDiv").empty();
                 $("#degerDiv").empty();
                 $("#siraliDiv").empty();
-                if (isNaN($("#inp1"))) {
+                $(".baslat").show();
+                $(".durdur").hide();
+                $(".devam_et").hide();
+                $(".yeniden_baslat").hide();
+                if (isNaN(parseInt($('#inp1')[0].value))) {
                     sayiSiniri = 9;
                 }
                 else {
                     sayiSiniri = parseInt($('#inp1')[0].value);
                 }
-                if (isNaN($("#inp2"))) {
+                if (isNaN(parseInt($('#inp2')[0].value))) {
                     diziUzunlugu = 10;
                 }
                 else {
@@ -456,7 +460,16 @@
                 $("#siraDiv").empty();
                 $("#degerDiv").empty();
                 $("#siraliDiv").empty();
-                inputString = $(".diziDeger")[0].value;
+                $(".baslat").show();
+                $(".durdur").hide();
+                $(".devam_et").hide();
+                $(".yeniden_baslat").hide();
+                if ($('.diziDeger')[0].value == "") {
+                    inputString = "1, 3, 3, 7";
+                }
+                else {
+                    inputString = $(".diziDeger")[0].value;
+                }
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
 
@@ -479,6 +492,10 @@
             });
 
             $('a.baslat').click(function () {
+                $(".baslat").hide();
+                $(".durdur").show();
+                $(".devam_et").hide();
+                $(".yeniden_baslat").show();
                 for (var i = 0; i <= maxVal; i++) {
                     node("siraDiv", i, i);
                 }
@@ -489,10 +506,14 @@
             });
 
             $('a.durdur').click(function () {
+                $(".durdur").hide();
+                $(".devam_et").show();
                 currenttime = new Date().getTime();
                 clearTimeout(stTmOut);
             });
             $('a.devam_et').click(function () {
+                $(".durdur").show();
+                $(".devam_et").hide();
                 stTmOut = setTimeout(funcs[fonkName], clock - (currenttime - startTime), params[0], params[1], params[2]);
             });
 
@@ -548,8 +569,8 @@
                 </label>
                 <a href="#" class="butlink1" id="diziYap">Dizi Oluştur</a></li>
             <li>
-                <a href="#" class="baslat">Başlat</a><a href="#" class="devam_et">Devam Et</a><a href="#"
-                    class="durdur">Durdur</a><a href="#" class="yeniden_baslat">Yeniden Başlat</a>
+                <a href="#" class="baslat" >Başlat</a><a href="#" class="devam_et" style="display:none;" >Devam Et</a>
+                <a href="#" class="durdur" style="display:none;">Durdur</a><a href="#" class="yeniden_baslat" style="display:none;">Yeniden Başlat</a>
             </li>
         </ul>
         <div class="visual">
