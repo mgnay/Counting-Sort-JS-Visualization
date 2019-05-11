@@ -10,7 +10,7 @@
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="counting2.js"></script>
+    <script src="counting.js"></script>
 
     <style type="text/css">
         body {
@@ -345,6 +345,10 @@
         $(function () {
             $('#buton1').click(function () {
                 inputString = "";
+                $("#sira").empty();
+                $("#siraDiv").empty();
+                $("#degerDiv").empty();
+                $("#siraliDiv").empty();
                 sayiSiniri = parseInt($('#inp1')[0].value);
                 diziUzunlugu = parseInt($('#inp2')[0].value);
                 for (let i = 0; i < diziUzunlugu - 1; i++) {
@@ -379,6 +383,10 @@
 
             $("#diziYap").click(function () {
                 inputString = "";
+                $("#sira").empty();
+                $("#siraDiv").empty();
+                $("#degerDiv").empty();
+                $("#siraliDiv").empty();
                 inputString = $(".diziDeger")[0].value;
                 inputArray = diziOlustur(inputString);
                 maxVal = Math.max(...inputArray);
@@ -476,7 +484,7 @@
     </ul>
     <div class="visual">
         <div id="sira" style="height: 100px;"></div>
-        <div id="deger">
+        <div id="deger" style="height: 150px;">
             <h3 id="siraP" style="display: none"></h3>
             <div id="siraDiv" style="clear:left; display: none">
 
@@ -485,7 +493,7 @@
 
             </div>
         </div>
-        <div id="siraliDiv" style="clear: left;">
+        <div id="siraliDiv" style="clear: left; height: 100px;">
 
         </div>
     </div>
