@@ -152,6 +152,8 @@ funcs = {
             fonkName = "degerDivColor";
             params = new Array();
             params.push(upperIndex, val);
+            stTmOut = setTimeout(funcs[fonkName], clock, params[0], params[1], params[2]);
+
         }
     }
 }
