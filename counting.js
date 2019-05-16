@@ -15,6 +15,8 @@ function slideDownDegerDiv() {
 
 funcs = {
     "countValArrColor": function (counter) {
+        yalanci_kod = $('#bolum2').css('background-color', '');
+        yalanci_kod = $('#bolum3').css('background-color', 'red');
         //Renk
         b = $('#sira div').length;
         b = b - 1;
@@ -92,6 +94,8 @@ funcs = {
         }
     },
     "siraDivColor": function (index) {
+        yalanci_kod = $('#bolum3').css('background-color', '');
+        yalanci_kod = $('#bolum4').css('background-color', 'red');
         //length = $('#degerDiv')[0].getElementsByTagName('div').length;
         length = $('#degerDiv div').length;
         if (length > index) {

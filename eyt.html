@@ -383,6 +383,14 @@
             color: white;
             line-height: 50px;
         }
+
+        #yalanci_kod {
+            width: 35%;
+            height: 30%;
+            position: fixed;
+            top: 35%;
+            right: 11%;
+        }
     </style>
     <script>
         inputString = "";
@@ -392,6 +400,7 @@
         inputArrayNodes = new Array(0);
         siraDiziNode = new Array(0);
         siraDiziCountNode = new Array(0);
+        var yalanci_kod;
         var slDwn = 800;
         var stTmOut;
         var startTime;
@@ -402,6 +411,7 @@
         var funcs;
 
         $(function () {
+            yalanci_kod = $('#bolum1').css('background-color', 'red');
             $('#buton1').click(function () {
                 inputString = "";
                 $("#sira").empty();
@@ -492,6 +502,8 @@
             });
 
             $('a.baslat').click(function () {
+                yalanci_kod = $('#bolum1').css('background-color', '');
+                yalanci_kod = $('#bolum2').css('background-color', 'red');
                 $(".baslat").hide();
                 $(".durdur").show();
                 $(".devam_et").hide();
@@ -588,6 +600,22 @@
 
             </div>
         </div>
+        <div id="yalanci_kod">
+                CountingSort<br/>
+                <div class="bolum" id="bolum1">
+                    //Sıralanacak Dizi rastgele ya da elle girilir.<br/>
+                </div>
+                <div class="bolum" id="bolum2">
+                        //0 ile girilen en büyük değer arasında bir dizi oluşturulur.
+                    </div>
+                <div class="bolum" id="bolum3">
+                    //Dizideki her bir elemanın kaç tane olduğu sayılır.<br/>
+                </div>
+                <div class="bolum" id="bolum4">
+                    // Sonra eleman sayısına bakılarak dizi sıralanır.<br/>
+                </div>
+                  end func<br/>
+            </div>
     </div>
 </body>
 
