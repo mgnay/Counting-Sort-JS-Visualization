@@ -13,10 +13,19 @@ function slideDownDegerDiv() {
     stTmOut = setTimeout(funcs[fonkName], clock, params[0], params[1], params[2]);
 }
 
+function activeStep(element) {
+    var step = document.getElementById(element).classList.add("active");
+}
+
+function deactiveStep(element) {
+    var step = document.getElementById(element).classList.remove("active");
+}
+
 funcs = {
-    "countValArrColor": function (counter) {
-        yalanci_kod = $('#bolum2').css('background-color', '');
-        yalanci_kod = $('#bolum3').css('background-color', 'red');
+    "countValArrColor": function(counter) {
+        deactiveStep("bolum2");
+        deactiveStep("bolum4");
+        activeStep("bolum3");
         //Renk
         b = $('#sira div').length;
         b = b - 1;
@@ -48,7 +57,7 @@ funcs = {
             stTmOut = setTimeout(funcs[fonkName], clock, params[0], params[1], params[2]);
         }
     },
-    "inputArrayNodesColor": function (counter, upperCounter) {
+    "inputArrayNodesColor": function(counter, upperCounter) {
         if (counter < inputArray.length) {
             if (counter > 0) {
                 d = counter - 1;
@@ -65,12 +74,16 @@ funcs = {
 
             if (upperVal == val) {
                 degerDiv.text(parseInt(degerDiv.text()) + 1);
+                deactiveStep("bolum3");
+                activeStep("bolum4");
                 //Renk
                 $('#sira .node' + counter).removeAttr('id').attr('id', 'nodeMatch');
                 //Renk
-            }else {
+            } else {
                 //Renk
                 $('#sira .node' + counter).removeAttr('id').attr('id', 'nodeBlue');
+                deactiveStep("bolum4");
+                activeStep("bolum3");
                 //Renk
             }
 
@@ -93,9 +106,9 @@ funcs = {
             stTmOut = setTimeout(funcs[fonkName], clock, params[0], params[1], params[2]);
         }
     },
-    "siraDivColor": function (index) {
-        yalanci_kod = $('#bolum3').css('background-color', '');
-        yalanci_kod = $('#bolum4').css('background-color', 'red');
+    "siraDivColor": function(index) {
+        deactiveStep("bolum3");
+        activeStep("bolum4");
         //length = $('#degerDiv')[0].getElementsByTagName('div').length;
         length = $('#degerDiv div').length;
         if (length > index) {
@@ -106,6 +119,9 @@ funcs = {
             //Renk
             $('#siraDiv .node' + index).removeAttr('id').attr('id', 'nodeRed');
             //Renk
+            deactiveStep("bolum6");
+            deactiveStep("bolum4");
+            activeStep("bolum5");
 
             val = $('#degerDiv .node' + index + ' p').text();
             clock = 1000;
@@ -137,8 +153,12 @@ funcs = {
 
     },
     "siraliDivColor": function siraliDivColor(upperIndex, val) {
+        deactiveStep("bolum3");
+        deactiveStep("bolum4");
+        activeStep("bolum5");
+        deactiveStep("bolum6");
         if (val == 0) {
-            setTimeout(function () {
+            setTimeout(function() {
                 upperIndex++;
 
                 clock = 1000;
@@ -150,6 +170,8 @@ funcs = {
             }, 1000);
         } else {
             node('siraliDiv', upperIndex, upperIndex);
+            deactiveStep("bolum5");
+            activeStep("bolum6");
             val--;
             vale = $('#degerDiv')[0].getElementsByClassName('node' + upperIndex)[0].getElementsByTagName('p')[0];
             vale.innerHTML = parseInt(vale.innerHTML) - 1;
